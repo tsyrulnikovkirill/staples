@@ -4,6 +4,7 @@ def with_hash(user_input)
 
   user_input.each_char do |element|
     stack_staples << element if staples.key?(element)
+    
     if staples.key(element) and staples.key(element) != stack_staples.pop
       return 'false'
     end
@@ -18,9 +19,7 @@ def with_string(user_input)
   stack_staples = []
 
   user_input.each_char do |element|
-    if open_staples.include?(element)
-      stack_staples << element
-    end
+    stack_staples << element if open_staples.include?(element)
 
     index_1 = close_staples.index(element)
 
